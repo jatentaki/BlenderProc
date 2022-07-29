@@ -508,7 +508,7 @@ class Utility:
 
         Utility.add_output_entry({
             "key": key,
-            "path": os.path.join(output_dir, prefix) + ("%04d" if unique_for_camposes else "") + suffix,
+            "path": os.path.join(output_dir, prefix) + ("%06d" if unique_for_camposes else "") + suffix,
             "version": version
         })
 

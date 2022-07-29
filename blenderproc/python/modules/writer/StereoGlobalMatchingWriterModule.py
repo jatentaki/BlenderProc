@@ -92,10 +92,10 @@ class StereoGlobalMatchingWriterModule(RendererInterface):
         )
 
         for frame in range(bpy.context.scene.frame_start, bpy.context.scene.frame_end):
-            np.save(os.path.join(self._determine_output_dir(), "stereo-depth_%04d") % frame, depth[frame])
+            np.save(os.path.join(self._determine_output_dir(), "stereo-depth_%06d") % frame, depth[frame])
 
             if self.config.get_bool("output_disparity", False):
-                np.save(os.path.join(self._determine_output_dir(), "disparity_%04d") % frame, disparity[frame])
+                np.save(os.path.join(self._determine_output_dir(), "disparity_%06d") % frame, disparity[frame])
 
         Utility.register_output(self._determine_output_dir(), "stereo-depth_", "stereo-depth", ".npy", "1.0.0")
         if self.config.get_bool("output_disparity", False):

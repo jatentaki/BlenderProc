@@ -221,7 +221,7 @@ def enable_distance_output(activate_antialiasing: bool, output_dir: Optional[str
 
     Utility.add_output_entry({
         "key": output_key,
-        "path": os.path.join(output_dir, file_prefix) + "%04d" + ".exr",
+        "path": os.path.join(output_dir, file_prefix) + "%06d" + ".exr",
         "version": "2.0.0",
         "trim_redundant_channels": True,
         "convert_to_depth": convert_to_depth
@@ -281,7 +281,7 @@ def enable_depth_output(activate_antialiasing: bool, output_dir: Optional[str] =
 
     Utility.add_output_entry({
         "key": output_key,
-        "path": os.path.join(output_dir, file_prefix) + "%04d" + ".exr",
+        "path": os.path.join(output_dir, file_prefix) + "%06d" + ".exr",
         "version": "2.0.0",
         "trim_redundant_channels": True,
         "convert_to_distance": convert_to_distance
@@ -395,7 +395,7 @@ def enable_normals_output(output_dir: Optional[str] = None, file_prefix: str = "
 
     Utility.add_output_entry({
         "key": output_key,
-        "path": os.path.join(output_dir, file_prefix) + "%04d" + ".exr",
+        "path": os.path.join(output_dir, file_prefix) + "%06d" + ".exr",
         "version": "2.0.0"
     })
 
@@ -430,7 +430,7 @@ def enable_diffuse_color_output(output_dir: Optional[str] = None, file_prefix: s
 
     Utility.add_output_entry({
         "key": output_key,
-        "path": os.path.join(output_dir, file_prefix) + "%04d" + ".png",
+        "path": os.path.join(output_dir, file_prefix) + "%06d" + ".png",
         "version": "2.0.0"
     })
 
@@ -476,7 +476,7 @@ def render(output_dir: Optional[str] = None, file_prefix: str = "rgb_", output_k
     if output_key is not None:
         Utility.add_output_entry({
             "key": output_key,
-            "path": os.path.join(output_dir, file_prefix) + "%04d" +
+            "path": os.path.join(output_dir, file_prefix) + "%06d" +
                     map_file_format_to_file_ending(bpy.context.scene.render.image_settings.file_format),
             "version": "2.0.0"
         })

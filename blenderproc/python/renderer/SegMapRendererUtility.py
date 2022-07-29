@@ -107,7 +107,7 @@ def render_segmap(output_dir: Optional[str] = None, temp_dir: Optional[str] = No
         for frame in range(bpy.context.scene.frame_start, bpy.context.scene.frame_end):  # for each rendered frame
             save_in_csv_attributes: Dict[int, Dict[str, Any]] = {}
             for suffix in suffixes:
-                file_path = temporary_segmentation_file_path + ("%04d" % frame) + suffix + ".exr"
+                file_path = temporary_segmentation_file_path + ("%06d" % frame) + suffix + ".exr"
                 segmentation = load_image(file_path)
                 print(file_path, segmentation.shape)
 
@@ -198,7 +198,7 @@ def render_segmap(output_dir: Optional[str] = None, temp_dir: Optional[str] = No
                         combined_result_map.append(resulting_map)
                         return_dict.setdefault("{}_segmaps{}".format(org_attribute, suffix), []).append(resulting_map)
 
-                fname = final_segmentation_file_path + ("%04d" % frame) + suffix
+                fname = final_segmentation_file_path + ("%06d" % frame) + suffix
                 # combine all resulting images to one image
                 resulting_map = np.stack(combined_result_map, axis=2)
                 # remove the unneeded third dimension
@@ -215,7 +215,7 @@ def render_segmap(output_dir: Optional[str] = None, temp_dir: Optional[str] = No
 
                 # write color mappings to file
                 # TODO: Remove unnecessary csv file when we give up backwards compatibility
-                csv_file_path = os.path.join(output_dir, segcolormap_output_file_prefix + ("%04d.csv" % frame))
+                csv_file_path = os.path.join(output_dir, segcolormap_output_file_prefix + ("%06d.csv" % frame))
                 with open(csv_file_path, 'w', newline='') as csvfile:
                     # get from the first element the used field names
                     fieldnames = ["idx"]

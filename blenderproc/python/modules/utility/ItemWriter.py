@@ -52,5 +52,5 @@ class ItemWriter:
             value_list.append(value_list_per_item)
 
         # Write to a numpy file
-        np.save(path_prefix + "%04d" % frame + ".npy", np.string_(json.dumps(value_list)))
+        np.save(path_prefix + "%06d" % frame + ".npy", np.string_(json.dumps(value_list)))
 
